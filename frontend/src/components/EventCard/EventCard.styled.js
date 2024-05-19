@@ -5,8 +5,10 @@ const Item = styled.li`
 
   list-style: none;
 
-  border: 3px solid gray;
+  border: 2px solid gray;
   border-radius: 12px;
+
+  padding: 10px;
 `;
 
 const Title = styled.p`
@@ -16,14 +18,6 @@ const Title = styled.p`
 `;
 
 const Button = styled.button`
-  /* position: absolute; */
-
-  /* padding: 8px; */
-  /* bottom: 12px;
-  right: 10px; */
-  /* margin-left: auto; */
-
-  background-color: lightgray;
   border: 1px solid black;
   border-radius: 4px;
 `;

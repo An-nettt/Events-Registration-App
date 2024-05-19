@@ -1,15 +1,15 @@
 import EventCard from '../EventCard/EventCard';
 
-import { Gallery } from './EventBoard.styled';
+import { List } from './EventBoard.styled';
 
 const EventBoard = ({ array }) => {
   return (
     <>
-      <Gallery>
+      <List>
         {array
           ? array.map((event) => <EventCard event={event} key={event._id} />)
           : null}
-      </Gallery>
+      </List>
     </>
   );
 };

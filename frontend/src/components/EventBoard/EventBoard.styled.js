@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
-export const Gallery = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 29px;
-  margin-top: 50px;
-  margin-bottom: 30px;
-  justify-content: center;
+const List = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(160px, auto);
+  grid-gap: 1rem;
+
+  padding: 20px;
+  margin: 0;
 `;
+
+export { List };
