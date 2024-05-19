@@ -1,0 +1,80 @@
+{
+  "title": "Paracetamol",
+  "shop": "Farm-union",
+  "shopId": "1",
+  "price": 19.30,
+  "favorite": false,
+  "img": "https://a24.com.ua/files/resized/products/paracetamol-tabletki-500-mg-20-sht.700x800.jpg"
+}
+{
+  "title": "Paracetamol",
+  "shop": "Med Service", 
+  "shopId": 2,
+  "price": 18.04,
+  "favorite": false,
+  "img": "https://a24.com.ua/files/resized/products/paracetamol-tabletki-500-mg-20-sht.700x800.jpg"
+}
+{
+  "title": "Paracetamol",
+  "shop": "Swiss Pharmacy",
+  "shopId": 3,
+  "price": 19.60,
+  "favorite": false,
+  "img": "https://a24.com.ua/files/resized/products/paracetamol-tabletki-500-mg-20-sht.700x800.jpg"
+}
+{
+  "title": "Paracetamol",
+  "shop": "Farmacia",
+  "shopId": 4,
+  "price": 19.70,
+  "favorite": false,
+  "img": "https://a24.com.ua/files/resized/products/paracetamol-tabletki-500-mg-20-sht.700x800.jpg"
+}
+{
+  "title": "Paracetamol",
+  "shop": "Algo-Pharm",
+  "shopId": 5,
+   "price": 25.00,
+  "favorite": false,
+  "img": "https://a24.com.ua/files/resized/products/paracetamol-tabletki-500-mg-20-sht.700x800.jpg"
+}
+{
+  "title": "Analgin",
+  "shop": "Farm-union",
+  "shopId": "1",
+  "price": 78.76,
+  "favorite": false,
+  "img": "https://storage.googleapis.com/static-storage/products/images/v2/269_eY8cJCj8_20231016_140600.jpg"
+}
+{
+  "title": "Analgin",
+  "shop": "Med Service", 
+  "shopId": 2,
+  "price": 79.20,
+  "favorite": false,
+  "img": "https://storage.googleapis.com/static-storage/products/images/v2/269_eY8cJCj8_20231016_140600.jpg"
+}
+{
+  "title": "Analgin",
+  "shop": "Swiss Pharmacy",
+  "shopId": 3,
+  "price": 66.92,
+  "favorite": false,
+  "img": "https://storage.googleapis.com/static-storage/products/images/v2/269_eY8cJCj8_20231016_140600.jpg"
+}
+{
+  "title": "Analgin",
+  "shop": "Farmacia",
+  "shopId": 4,
+  "price": 76.30,
+  "favorite": false,
+  "img": "https://storage.googleapis.com/static-storage/products/images/v2/269_eY8cJCj8_20231016_140600.jpg"
+}
+{
+  "title": "Analgin",
+  "shop": "Algo-Pharm",
+  "shopId": 5,
+   "price": 73.80,
+  "favorite": false,
+  "img": "https://storage.googleapis.com/static-storage/products/images/v2/269_eY8cJCj8_20231016_140600.jpg"
+}
