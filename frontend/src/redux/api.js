@@ -14,3 +14,16 @@ export const eventsAPI = createAsyncThunk(
     }
   }
 );
+
+export const addUser = createAsyncThunk(
+  'events/addUser',
+  async (user, thunkAPI) => {
+    try {
+      const response = await axios.post('/', user);
+      return response.data;
+    } catch (error) {
+      console.log(error.message);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

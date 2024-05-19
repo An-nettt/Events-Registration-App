@@ -1,9 +1,9 @@
 import express from 'express';
 
-import getAll from '../../controllers/events-controller.js';
+import getAllEvents from '../../controllers/events-controller.js';
 
-const router = express.Router();
+const eventsRouter = express.Router();
 
-router.get('/', getAll);
+eventsRouter.get('/', getAllEvents);
 
-export default router;
+export default eventsRouter;

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import MainModal from '../Modal/Modal';
 import EventModal from '../Event Registr Modal/EventModal';
 
-import { Item, Button } from './EventCard.styled';
+import { Item, Title, Button } from './EventCard.styled';
 
 const EventCard = ({ event }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,7 +20,7 @@ const EventCard = ({ event }) => {
   return (
     <>
       <Item>
-        <p>{event.title}</p>
+        <Title>{event.title}</Title>
         <p>{event.description}</p>
         <Button type="button" onClick={openModal}>
           Register

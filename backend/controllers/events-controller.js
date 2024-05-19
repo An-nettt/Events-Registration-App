@@ -1,9 +1,9 @@
-import Events from '../models/events-model.js';
+import Event from '../models/events-model.js';
 
-const getAll = async (req, res) => {
-  const result = await Events.find();
+const getAllEvents = async (req, res) => {
+  const result = await Event.find();
   res.json(result);
   console.log(result);
 };
 
-export default getAll;
+export default getAllEvents;

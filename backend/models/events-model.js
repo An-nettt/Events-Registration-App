@@ -1,11 +1,11 @@
 import { Schema, model } from 'mongoose';
 
-const eventsSchema = new Schema({
+const eventSchema = new Schema({
   title: String,
   shop: String,
   favorite: Boolean,
 });
 
-const Events = model('events', eventsSchema);
+const Event = model('event', eventSchema);
 
-export default Events;
+export default Event;
