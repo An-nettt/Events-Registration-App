@@ -8,7 +8,6 @@ export const eventsAPI = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get(`/`);
-      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

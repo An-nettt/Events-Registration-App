@@ -1,0 +1,44 @@
+import { useState, useEffect } from 'react';
+import Modal from '@mui/joy/Modal';
+
+const MainModal = ({ modalIsOpen, closeModal, children }) => {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (modalIsOpen) {
+      setOpen(true);
+    } else {
+      setOpen(false);
+    }
+  }, [modalIsOpen]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.code === 'Escape') {
+        closeModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [closeModal]);
+
+  return (
+    <Modal
+      open={open}
+      onClose={closeModal}
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        // boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1)',
+      }}
+    >
+      <>{children}</>
+    </Modal>
+  );
+};
+
+export default MainModal;

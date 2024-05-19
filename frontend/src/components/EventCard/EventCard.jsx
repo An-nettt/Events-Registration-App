@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
+import MainModal from '../Modal/Modal';
+import EventModal from '../Event Registr Modal/EventModal';
+
 import { Item, Button } from './EventCard.styled';
 
 const EventCard = ({ event }) => {
@@ -10,9 +13,9 @@ const EventCard = ({ event }) => {
     setIsModalOpen(true);
   }
 
-  //   function closeModal() {
-  //     setIsModalOpen(false);
-  //   }
+  function closeModal() {
+    setIsModalOpen(false);
+  }
 
   return (
     <>
@@ -26,17 +29,13 @@ const EventCard = ({ event }) => {
           View
         </Button>
       </Item>
+      {isModalOpen && (
+        <MainModal modalIsOpen={isModalOpen} closeModal={closeModal}>
+          <EventModal closeModal={closeModal} />
+        </MainModal>
+      )}
     </>
   );
 };
 
 export default EventCard;
-
-// {/* <Title> {title} </Title>; */}
-// {
-//   isModalOpen && (
-//     <MainModal modalIsOpen={isModalOpen} closeModal={closeModal}>
-//       <AdvertCardModal closeModal={closeModal} carEl={carEl} />
-//     </MainModal>
-//   );
-// }
