@@ -1,76 +1,78 @@
 import { useDispatch } from 'react-redux';
-import { nanoid } from 'nanoid';
-import {
-  ModalDialog,
-  DialogTitle,
-  Stack,
-  Button,
-  FormControl,
-  FormLabel,
-  Typography,
-  Input,
-  Box,
-  Checkbox,
-} from '@mui/joy';
-import { addUser } from '../../redux/api';
-import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+
+import ModalClose from '@mui/joy/ModalClose';
+import { RegisterForm, Text, Input, Button } from './EventModal.styled';
+import { addUser } from '../../redux/users/usersApi';
 
 const EventModal = () => {
-  const [open, setOpen] = useState(false);
-
   const dispatch = useDispatch();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const { register, handleSubmit, reset } = useForm();
 
-    const newUser = {
-      id: nanoid(),
-      name: event.target[0].value,
-      email: event.target[1].value,
-      dateBirth: event.target[2].value,
-      socMedia: event.target[3].checked,
-      friends: event.target[4].checked,
-      found: event.target[5].checked,
-    };
-
-    console.log(newUser);
-
-    dispatch(addUser(newUser));
-
-    // form.reset();
-
-    setOpen(false);
+  const onSubmit = (data) => {
+    console.log(data);
+    dispatch(addUser(data));
+    // reset();
   };
 
   return (
-    <ModalDialog color="neutral" size="lg" variant="soft">
-      <DialogTitle>Event registration</DialogTitle>
-      <form onSubmit={handleSubmit}>
-        <Stack spacing={2}>
-          <FormControl>
-            <FormLabel>Full name</FormLabel>
-            <Input autoFocus required />
-          </FormControl>
-          <FormControl>
-            <FormLabel>Email</FormLabel>
-            <Input required />
-          </FormControl>
-          <FormControl>
-            <FormLabel>Date of birth</FormLabel>
-            <Input required />
-          </FormControl>
+    <RegisterForm onSubmit={handleSubmit(onSubmit)}>
+      <ModalClose />
+      <Text>Full name</Text>
+      <Input
+        name="fullName"
+        type="text"
+        placeholder="Full name"
+        {...register('name', { required: true })}
+      />
+      <Text>Email</Text>
+      <Input
+        name="email"
+        type="email"
+        placeholder="Email"
+        {...register('email', { required: true })}
+      />
+      <Text>Date of Birth</Text>
+      <Input
+        name="date"
+        type="date"
+        placeholder="Date of Birth"
+        {...register('date')}
+      />
+      <Text>Where did you hear about this event?</Text>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <Input
+            id="socmedia"
+            name="socmedia"
+            type="checkbox"
+            {...register('socmedia')}
+          />
+          <Text htmlFor="socmedia">Social media</Text>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <Input
+            id="friends"
+            name="friends"
+            type="checkbox"
+            {...register('friends')}
+          />
+          <Text htmlFor="friends">Friends</Text>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <Input
+            id="found"
+            name="found"
+            type="checkbox"
+            {...register('found')}
+          />
+          <Text htmlFor="found">Found myself</Text>
+        </div>
+      </div>
 
-          <Typography>Where did you hear about this event?</Typography>
-          <Box sx={{ display: 'flex', gap: 2 }}>
-            <Checkbox label="Social media" />
-            <Checkbox label="Friends" />
-            <Checkbox label="Found myself" />
-          </Box>
-
-          <Button type="submit">Submit</Button>
-        </Stack>
-      </form>
-    </ModalDialog>
+      <Button type="submit">Add user</Button>
+    </RegisterForm>
   );
 };
 export default EventModal;

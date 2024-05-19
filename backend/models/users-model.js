@@ -1,10 +1,11 @@
 import { Schema, model } from 'mongoose';
 
 const userSchema = new Schema({
+  id: String,
   name: String,
   email: String,
-  date: Date,
-  socMedia: Boolean,
+  date: String,
+  socmedia: Boolean,
   friends: Boolean,
   found: Boolean,
 });

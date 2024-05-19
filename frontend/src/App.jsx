@@ -1,8 +1,8 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { eventsAPI } from '../src/redux/api';
-import { selectEvents } from './redux/selectors';
+import { eventsAPI } from './redux/events/eventsApi';
+import { selectEvents } from './redux/events/eventsSelectors';
 
 import EventBoard from './components/EventBoard/EventBoard';
 

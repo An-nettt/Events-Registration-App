@@ -3,13 +3,16 @@ import User from '../models/users-model.js';
 const getAllUsers = async (req, res) => {
   const result = await User.find();
   res.json(result);
-  console.log(result);
 };
 
-// const addNewUser = async (req, res) => {
-//   const { _id: owner } = req.user;
-//   const result = await User.create({ ...req.body, owner });
-//   res.status(201).json(result);
-// };
-
-export default getAllUsers;
+const addNewUser = async (req, res) => {
+  try {
+    const { name, email, date, socmedia, friends, found } = req.body;
+    const newUser = new User({ name, email, date, socmedia, friends, found });
+    await newUser.save();
+    res.status(201).json(newUser);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+export default { getAllUsers, addNewUser };

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 import MainModal from '../Modal/Modal';
 import EventModal from '../Event Registr Modal/EventModal';
