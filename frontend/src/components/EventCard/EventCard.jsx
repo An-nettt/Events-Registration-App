@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 import MainModal from '../Modal/Modal';
 import EventModal from '../EventRegistrModal/EventModal';
 
-import { Item, Title, Button } from './EventCard.styled';
+import { Item, Title, Button, StyledLink } from './EventCard.styled';
 
 const EventCard = ({ event }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,7 +24,7 @@ const EventCard = ({ event }) => {
         <Button type="button" onClick={openModal}>
           Register
         </Button>
-        <Link to={`/event/${event._id}`}>View</Link>;
+        <StyledLink to={`/event/${event._id}`}>View</StyledLink>
       </Item>
       {isModalOpen && (
         <MainModal modalIsOpen={isModalOpen} closeModal={closeModal}>

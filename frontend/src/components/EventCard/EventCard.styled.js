@@ -1,14 +1,15 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Item = styled.li`
   position: relative;
 
   list-style: none;
+  padding: 10px;
+  font-size: 13px;
 
   border: 2px solid gray;
   border-radius: 12px;
-
-  padding: 10px;
 `;
 
 const Title = styled.p`
@@ -18,8 +19,29 @@ const Title = styled.p`
 `;
 
 const Button = styled.button`
-  border: 1px solid black;
-  border-radius: 4px;
+  position: absolute;
+
+  padding: 8px;
+  bottom: 12px;
+  left: 40px;
+  /* margin-right: auto; */
+
+  background-color: #fff;
+  border: none;
+  color: blue;
 `;
 
-export { Item, Title, Button };
+const StyledLink = styled(Link)`
+  position: absolute;
+
+  text-decoration: none;
+  font-size: 14px;
+  color: blue;
+
+  padding: 8px;
+  bottom: 12px;
+  right: 40px;
+  /* margin-left: auto; */
+`;
+
+export { Item, Title, Button, StyledLink };

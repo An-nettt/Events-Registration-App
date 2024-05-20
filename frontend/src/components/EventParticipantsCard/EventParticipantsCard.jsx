@@ -1,9 +1,11 @@
+import { Item, Title, Text } from './EventParticipantsCard.styled';
+
 const EventParticipantsCard = ({ user }) => {
   return (
-    <>
-      <h2>{user.name}</h2>
-      <p>{user.email}</p>
-    </>
+    <Item>
+      <Title>{user.name}</Title>
+      <Text>{user.email}</Text>
+    </Item>
   );
 };
 
