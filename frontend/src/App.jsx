@@ -1,26 +1,16 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { eventsAPI } from './redux/events/eventsApi';
-import { selectEvents } from './redux/events/eventsSelectors';
+import { Routes, Route } from 'react-router-dom';
 
-import EventBoard from './components/EventBoard/EventBoard';
-
-import { Title } from './App.styled';
+import EventPage from './pages/EventPage/EventPage';
+import EventParticipants from '../src/components/EventParticipants/EventParticipants';
 
 const App = () => {
-  const dispatch = useDispatch();
-
-  const events = useSelector(selectEvents);
-
-  useEffect(() => {
-    dispatch(eventsAPI());
-  }, [dispatch]);
-
   return (
     <div>
-      <Title>Events</Title>
-      <EventBoard array={events.events} />;
+      <Routes>
+        <Route exact path="/" element={<EventPage />} />
+        <Route path="/event/:id" element={<EventParticipants />} />
+      </Routes>
     </div>
   );
 };

@@ -9,6 +9,7 @@ const userSchema = new Schema({
   friends: Boolean,
   found: Boolean,
   title: String,
+  idtitle: String,
 });
 
 const User = model('user', userSchema);

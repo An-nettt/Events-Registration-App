@@ -7,7 +7,8 @@ const getAllUsers = async (req, res) => {
 
 const addNewUser = async (req, res) => {
   try {
-    const { name, email, date, socmedia, friends, found, title } = req.body;
+    const { name, email, date, socmedia, friends, found, title, idtitle } =
+      req.body;
     const newUser = new User({
       name,
       email,
@@ -16,6 +17,7 @@ const addNewUser = async (req, res) => {
       friends,
       found,
       title,
+      idtitle,
     });
     await newUser.save();
     res.status(201).json(newUser);

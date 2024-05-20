@@ -4,7 +4,7 @@ export const handlePending = (state) => {
 
 export const handleFulfilled = (state, { payload }) => {
   state.isLoading = false;
-  state.users = payload;
+  state.list = payload;
 };
 
 export const AddHandleFulfilled = (state, { payload }) => {
