@@ -8,6 +8,7 @@ const userSchema = new Schema({
   socmedia: Boolean,
   friends: Boolean,
   found: Boolean,
+  title: String,
 });
 
 const User = model('user', userSchema);

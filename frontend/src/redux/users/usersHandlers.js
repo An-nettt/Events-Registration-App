@@ -9,7 +9,6 @@ export const handleFulfilled = (state, { payload }) => {
 
 export const AddHandleFulfilled = (state, { payload }) => {
   state.isLoading = false;
-  console.log(payload);
   state.list.push(payload);
 };
 

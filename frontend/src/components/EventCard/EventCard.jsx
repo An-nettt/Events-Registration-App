@@ -31,7 +31,7 @@ const EventCard = ({ event }) => {
       </Item>
       {isModalOpen && (
         <MainModal modalIsOpen={isModalOpen} closeModal={closeModal}>
-          <EventModal closeModal={closeModal} />
+          <EventModal closeModal={closeModal} title={event.title} />
         </MainModal>
       )}
     </>

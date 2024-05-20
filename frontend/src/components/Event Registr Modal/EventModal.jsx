@@ -5,15 +5,15 @@ import ModalClose from '@mui/joy/ModalClose';
 import { RegisterForm, Text, Input, Button } from './EventModal.styled';
 import { addUser } from '../../redux/users/usersApi';
 
-const EventModal = () => {
+const EventModal = ({ title }) => {
   const dispatch = useDispatch();
 
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-    dispatch(addUser(data));
-    // reset();
+    const payload = { ...data, title };
+    dispatch(addUser(payload));
+    reset();
   };
 
   return (
