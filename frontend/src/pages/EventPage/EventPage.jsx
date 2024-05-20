@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { eventsAPI } from '../../redux/events/eventsApi.js';
 import { getAllUsersAPI } from '../../redux/users/usersApi.js';
 import { selectEvents } from '../../redux/events/eventsSelectors.js';
-import { selectUsers } from '../../redux/users/usersSelectors.js';
 
 import EventBoard from '../../components/EventBoard/EventBoard.jsx';
 
@@ -14,7 +13,6 @@ const EventPage = () => {
   const dispatch = useDispatch();
 
   const events = useSelector(selectEvents);
-  const users = useSelector(selectUsers);
 
   useEffect(() => {
     dispatch(eventsAPI());
