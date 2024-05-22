@@ -24,7 +24,6 @@ const Button = styled.button`
   padding: 8px;
   bottom: 12px;
   left: 40px;
-  /* margin-right: auto; */
 
   background-color: #fff;
   border: none;
@@ -41,7 +40,6 @@ const StyledLink = styled(Link)`
   padding: 8px;
   bottom: 12px;
   right: 40px;
-  /* margin-left: auto; */
 `;
 
 export { Item, Title, Button, StyledLink };

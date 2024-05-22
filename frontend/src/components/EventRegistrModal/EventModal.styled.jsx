@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { TextField } from '@mui/material';
 
 const RegisterForm = styled.form`
   position: relative;
@@ -10,7 +11,7 @@ const RegisterForm = styled.form`
   border-radius: 6px;
 
   width: 350px;
-  height: 350px;
+  height: 400px;
 `;
 
 const Text = styled.p`
@@ -20,13 +21,23 @@ const Text = styled.p`
   font-weight: bold;
 `;
 
-const Input = styled.input`
+const Thumb = styled.div`
+  position: relative;
+`;
+
+const Input = styled(TextField)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* width: 100%;
   display: flex;
   padding: 5px;
+  margin-bottom: 10px;
 
   border: 1px solid #d4d4d4;
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 16px; */
 `;
 
 const CheckboxText = styled.p`
@@ -47,6 +58,11 @@ const Button = styled.button`
   border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
+
+  cursor: pointer;
+  &:hover {
+    background-color: lightgray;
+  }
 `;
 
-export { RegisterForm, Text, Input, CheckboxText, Button };
+export { RegisterForm, Thumb, Text, Input, CheckboxText, Button };

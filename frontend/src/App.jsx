@@ -1,8 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import EventPage from './pages/EventPage/EventPage';
-import EventParticipants from '../src/components/EventParticipants/EventParticipants';
+import EventPage from './pages/event/eventPage';
+import EventParticipants from './components/EventParticipants/EventParticipants';
 
 const App = () => {
   return (

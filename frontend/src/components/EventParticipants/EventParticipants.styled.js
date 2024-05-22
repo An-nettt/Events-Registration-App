@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const Title = styled.h1`
   margin-left: 20px;
@@ -17,4 +18,23 @@ const List = styled.ul`
   margin: 0;
 `;
 
-export { Title, List };
+const BackLink = styled(Link)`
+  display: inline-block;
+
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 16px;
+  padding: 8px 16px;
+
+  text-decoration: none;
+
+  background-color: lightgray;
+  color: white;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: gray;
+  }
+`;
+
+export { Title, List, BackLink };
