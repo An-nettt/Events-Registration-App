@@ -3,7 +3,7 @@ import { Item, Title, Text } from './EventParticipantsCard.styled';
 const EventParticipantsCard = ({ user }) => {
   return (
     <Item>
-      <Title>{user.name}</Title>
+      <Title>{user.fullname}</Title>
       <Text>{user.email}</Text>
     </Item>
   );

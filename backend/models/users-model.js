@@ -2,7 +2,7 @@ import { Schema, model } from 'mongoose';
 
 const userSchema = new Schema({
   id: String,
-  name: String,
+  fullname: String,
   email: String,
   date: String,
   socmedia: Boolean,

@@ -1,5 +1,12 @@
 import styled from 'styled-components';
-import { TextField } from '@mui/material';
+import {
+  TextField,
+  FormControl,
+  FormLabel,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
+} from '@mui/material';
 
 const RegisterForm = styled.form`
   position: relative;
@@ -10,11 +17,11 @@ const RegisterForm = styled.form`
   background-color: #fff;
   border-radius: 6px;
 
-  width: 350px;
-  height: 400px;
+  width: 440px;
+  height: 430px;
 `;
 
-const Text = styled.p`
+const Text = styled(FormLabel)`
   margin-bottom: 8px;
 
   font-size: 14px;

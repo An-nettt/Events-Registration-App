@@ -1,22 +1,26 @@
 import { useDispatch } from 'react-redux';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import ModalClose from '@mui/joy/ModalClose';
-
 import {
-  RegisterForm,
-  Thumb,
-  Text,
-  Input,
-  CheckboxText,
-  Button,
-} from './EventModal.styled';
+  FormControl,
+  FormLabel,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
+  TextField,
+} from '@mui/material';
+import { LocalizationProvider, DatePicker } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs from 'dayjs';
+
+import { RegisterForm, Thumb, Input, Button } from './EventModal.styled';
 import { addUser } from '../../redux/users/usersApi';
 
 const userSchema = Yup.object().shape({
-  fullName: Yup.string()
+  fullname: Yup.string()
     .required('Full name is required!')
     .min(2, 'Full name must be at least 2 characters long')
     .matches(
@@ -30,13 +34,17 @@ const userSchema = Yup.object().shape({
       /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
       'Invalid email address'
     ),
-  date: Yup.date().default(() => new Date()),
+  date: Yup.date()
+    .nullable()
+    .required('Date of Birth is required')
+    .max(new Date(), 'Date of Birth cannot be in the future'),
 });
 
 const EventModal = ({ title, idtitle, closeModal }) => {
   const dispatch = useDispatch();
 
   const {
+    control,
     register,
     handleSubmit,
     reset,
@@ -64,59 +72,74 @@ const EventModal = ({ title, idtitle, closeModal }) => {
         />
         <Thumb>
           <Input
-            name="fullName"
+            name="fullname"
             label="Full name"
             type="text"
-            error={Boolean(errors.fullName)}
-            helper={errors.fullName?.message}
-            {...register('fullName')}
+            margin="normal"
+            {...register('fullname')}
+            error={!!errors.fullname}
+            helperText={errors.fullname?.message}
           />
 
           <Input
             name="email"
             label="Email"
             type="email"
+            margin="normal"
             placeholder="Email"
             {...register('email')}
+            error={!!errors.email}
+            helperText={errors.email?.message}
           />
 
-          <Input
-            name="date"
-            label="Date of Birth"
-            type="date"
-            placeholder="Date of Birth"
-            {...register('date')}
-          />
-          <Text>Where did you hear about this event?</Text>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Input
-                id="socmedia"
-                name="socmedia"
-                type="checkbox"
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <Controller
+              name="date"
+              control={control}
+              defaultValue={null}
+              render={({ field }) => (
+                <DatePicker
+                  label="Date of Birth"
+                  value={field.value}
+                  onChange={(newValue) => field.onChange(newValue)}
+                  format="DD-MM-YYYY"
+                  slotProps={{
+                    textField: {
+                      margin: 'normal',
+                      error: !!errors.date,
+                      helperText: errors.date?.message,
+                    },
+                  }}
+                />
+              )}
+            />
+          </LocalizationProvider>
+
+          <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
+            <FormLabel component="legend">
+              Where did you hear about this event?
+            </FormLabel>
+            <FormGroup aria-label="position" row>
+              <FormControlLabel
+                control={<Checkbox name="socmedia" />}
+                label="Social media"
+                value="end"
                 {...register('socmedia')}
               />
-              <CheckboxText htmlFor="socmedia">Social media</CheckboxText>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Input
-                id="friends"
-                name="friends"
-                type="checkbox"
+              <FormControlLabel
+                control={<Checkbox name="friends" />}
+                label="Friends"
+                value="end"
                 {...register('friends')}
               />
-              <CheckboxText htmlFor="friends">Friends</CheckboxText>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <Input
-                id="found"
-                name="found"
-                type="checkbox"
+              <FormControlLabel
+                control={<Checkbox name="found" />}
+                label="Found myself"
+                value="end"
                 {...register('found')}
               />
-              <CheckboxText htmlFor="found">Found myself</CheckboxText>
-            </div>
-          </div>
+            </FormGroup>
+          </FormControl>
 
           <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
             <Button type="submit">Add event participant</Button>
@@ -126,4 +149,5 @@ const EventModal = ({ title, idtitle, closeModal }) => {
     </>
   );
 };
+
 export default EventModal;
