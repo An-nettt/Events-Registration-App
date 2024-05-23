@@ -1,12 +1,5 @@
 import styled from 'styled-components';
-import {
-  TextField,
-  FormControl,
-  FormLabel,
-  FormGroup,
-  FormControlLabel,
-  Checkbox,
-} from '@mui/material';
+import { TextField, FormLabel } from '@mui/material';
 
 const RegisterForm = styled.form`
   position: relative;
@@ -37,10 +30,7 @@ const Input = styled(TextField)`
   top: 0;
   left: 0;
   width: 100%;
-  /* width: 100%;
-  display: flex;
-  padding: 5px;
-  margin-bottom: 10px;
+
 
   border: 1px solid #d4d4d4;
   border-radius: 4px;

@@ -10,11 +10,9 @@ import {
   FormGroup,
   FormControlLabel,
   Checkbox,
-  TextField,
 } from '@mui/material';
 import { LocalizationProvider, DatePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import dayjs from 'dayjs';
 
 import { RegisterForm, Thumb, Input, Button } from './EventModal.styled';
 import { addUser } from '../../redux/users/usersApi';
@@ -24,8 +22,8 @@ const userSchema = Yup.object().shape({
     .required('Full name is required!')
     .min(2, 'Full name must be at least 2 characters long')
     .matches(
-      '^[a-zA-Z]+(?:[s.]+[a-zA-Z]+)*$',
-      'Full name must contain only letters'
+      /^[A-Za-zА-Яа-яЁёЄєЇїІіҐґÜüÖöÄäßçÇşŞğĞ\s.]+$/,
+      'Full name must contain only letters, dots, and spaces'
     ),
   email: Yup.string()
     .email()
@@ -123,19 +121,16 @@ const EventModal = ({ title, idtitle, closeModal }) => {
               <FormControlLabel
                 control={<Checkbox name="socmedia" />}
                 label="Social media"
-                value="end"
                 {...register('socmedia')}
               />
               <FormControlLabel
                 control={<Checkbox name="friends" />}
                 label="Friends"
-                value="end"
                 {...register('friends')}
               />
               <FormControlLabel
                 control={<Checkbox name="found" />}
                 label="Found myself"
-                value="end"
                 {...register('found')}
               />
             </FormGroup>
