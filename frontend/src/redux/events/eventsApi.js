@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'http://localhost:5000/api';
+axios.defaults.baseURL = 'events-registration-app-azure.vercel.app';
 
 export const eventsAPI = createAsyncThunk(
   'events/fetchAll',
