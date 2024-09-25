@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'http://localhost:5000/api';
+axios.defaults.baseURL =
+  'https://events-registration-app-backend-5ln1nvmdm-an-nettts-projects.vercel.app';
 
 export const getAllUsersAPI = createAsyncThunk(
   'users/fetchAll',
