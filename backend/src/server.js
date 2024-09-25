@@ -24,3 +24,7 @@ mongoose
 const db = mongoose.connection;
 db.on('connected', () => console.log('connected'));
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+export default (req, res) => {
+  app(req, res); 
+};
