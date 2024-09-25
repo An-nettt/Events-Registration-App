@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 
-import eventsRouter from './routes/api/events-router.js';
-import usersRouter from './routes/api/users-router.js';
+import eventsRouter from './api/events-router.js';
+import usersRouter from './api/users-router.js';
 
 const app = express();
 
