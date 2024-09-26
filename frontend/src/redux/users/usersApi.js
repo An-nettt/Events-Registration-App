@@ -2,13 +2,13 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL =
-  'https://events-registration-app-backend-5ln1nvmdm-an-nettts-projects.vercel.app';
+  'https://events-registration-app-backend-5zhzrrrfz-an-nettts-projects.vercel.app';
 
 export const getAllUsersAPI = createAsyncThunk(
   'users/fetchAll',
   async (_, thunkAPI) => {
     try {
-      const response = await axios.get(`/users/`);
+      const response = await axios.get(`/api/users`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

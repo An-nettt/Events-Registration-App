@@ -1,18 +1,15 @@
 import express from 'express';
 import cors from 'cors';
+import morgan from 'morgan';
 
 import eventsRouter from '../api/events-router.js';
 import usersRouter from '../api/users-router.js';
 
 const app = express();
 
-const corsOptions = {
-  origin: 'http://localhost:3000',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
+app.use(morgan('dev'));
 
 app.use('/api/events', eventsRouter);
 app.use('/api/users', usersRouter);
