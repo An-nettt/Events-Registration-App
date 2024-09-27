@@ -2,12 +2,13 @@
   "name": "backend",
   "version": "1.0.0",
   "type": "module",
+  "requires": true,
   "description": "",
   "scripts": {
     "start": "cross-env NODE_ENV=production node src/server.js",
     "dev": "cross-env NODE_ENV=development nodemon src/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-     "build": "node build/build.js"
+    "build": "node build/build.js"
   },
   "keywords": [],
   "author": "",
