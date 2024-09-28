@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = process.env.REACT_APP_API_URL;
-console.log(axios.defaults.baseURL);
+// console.log(axios.defaults.baseURL);
 
 export const getAllUsersAPI = createAsyncThunk(
   'users/fetchAll',

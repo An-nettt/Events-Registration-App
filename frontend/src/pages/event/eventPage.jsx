@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { eventsAPI } from '../../redux/events/eventsApi.js';
 import { getAllUsersAPI } from '../../redux/users/usersApi.js';
@@ -7,8 +7,11 @@ import usePagination from '../../hooks/usePagination';
 
 import EventBoard from '../../components/EventBoard/EventBoard.jsx';
 
+
 import {
   Title,
+  Text,
+  Button,
   PaginationContainer,
   PaginationButton,
 } from './eventPage.styled.js';
@@ -22,6 +25,34 @@ const EventPage = () => {
     dispatch(getAllUsersAPI());
   }, [dispatch]);
 
+  const [sortedData, setSortedData] = useState([]);
+  const [sortType, setSortType] = useState('asc');
+
+   useEffect(() => {
+     if (eventsData.events.length > 0) {
+       setSortedData(eventsData.events);
+     }
+   }, [eventsData.events]);
+
+  const sortData = (key) => {
+    if (!sortedData.length) { return }; 
+    let sortedArray = [...eventsData.events];
+    
+    sortedArray.sort((a, b) => {
+      if (sortType === 'asc') {
+        return a[key] > b[key] ? 1 : -1;
+      } else {
+        return a[key] < b[key] ? 1 : -1;
+      }
+    });
+    setSortedData(sortedArray);
+  };
+
+  const handleButtonClick = (buttonName) => {
+     setSortType(sortType === 'asc' ? 'desc' : 'asc');
+     sortData(buttonName);
+  };
+
   const {
     firstContentIndex,
     lastContentIndex,
@@ -31,14 +62,38 @@ const EventPage = () => {
     totalPages,
   } = usePagination({
     contentPerPage: 8,
-    count: eventsData.events.length,
+    count: sortedData.length,
   });
 
   return (
     <>
       <Title>Events</Title>
+      <div>
+        <Text>Sort by: </Text>
+        <Button
+          type="button"
+          name="title"
+          onClick={() => handleButtonClick('title')}
+        >
+          Title
+        </Button>
+        <Button
+          type="button"
+          name="date"
+          onClick={() => handleButtonClick('date')}
+        >
+          Event date
+        </Button>
+        <Button
+          type="button"
+          name="organizer"
+          onClick={() => handleButtonClick('organizer')}
+        >
+          Organizer
+        </Button>
+      </div>
       <EventBoard
-        array={eventsData.events.slice(firstContentIndex, lastContentIndex)}
+        array={sortedData.slice(firstContentIndex, lastContentIndex)}
       />
       <PaginationContainer>
         <PaginationButton onClick={prevPage} disabled={page === 1}>
@@ -54,3 +109,5 @@ const EventPage = () => {
 };
 
 export default EventPage;
+
+

@@ -2,8 +2,8 @@ import EventCard from '../EventCard/EventCard';
 
 import { List } from './EventBoard.styled';
 
-const EventBoard = ({ array }) => {
-  return (
+const EventBoard = ({ array, arraySort }) => {
+ return (
     <>
       <List>
         {array
