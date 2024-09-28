@@ -8,6 +8,7 @@ const List = styled.ul`
 
   padding: 20px;
   margin: 0;
+  margin-bottom: 30px;
 `;
 
 export { List };
