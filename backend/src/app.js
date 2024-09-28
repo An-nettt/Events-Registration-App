@@ -14,11 +14,6 @@ app.use(morgan('dev'));
 app.use('/api/events', eventsRouter);
 app.use('/api/users', usersRouter);
 
-app.use((req, res, next) => {
-  console.log(`Received request: ${req.method} ${req.url}`);
-  console.log('Headers:', req.headers);
-  next();
-});
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' });
