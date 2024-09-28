@@ -8,6 +8,24 @@ const Title = styled.h1`
   font-size: 26px;
 `;
 
+const Input = styled.input`
+  width: 240px;
+  height: 28px;
+  margin-left: 24px;
+  padding-left: 24px;
+  border-radius: 6px;
+
+
+  background-color: #f7f7fb;
+  border: none;
+  border: 1px solid rgba(138, 138, 137, 0.2);
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.11;
+  color: #121417;
+`;
+
 const List = styled.ul`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -37,4 +55,4 @@ const BackLink = styled(Link)`
   }
 `;
 
-export { Title, List, BackLink };
+export { Title, Input, List, BackLink };
