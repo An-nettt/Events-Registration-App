@@ -7,14 +7,7 @@ import usersRouter from '../api/users-router.js';
 
 const app = express();
 
-const corsOptions = {
-  origin: [
-    'https://events-registration-app-coq7.onrender.com',
-  ], 
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 
