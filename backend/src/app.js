@@ -8,11 +8,11 @@ import usersRouter from '../api/users-router.js';
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: [
+    'https://events-registration-app-coq7.onrender.com',
+  ], 
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-}
+};
 
 app.use(cors(corsOptions));
 app.use(express.json());
@@ -20,6 +20,12 @@ app.use(morgan('dev'));
 
 app.use('/api/events', eventsRouter);
 app.use('/api/users', usersRouter);
+
+app.use((req, res, next) => {
+  console.log(`Received request: ${req.method} ${req.url}`);
+  console.log('Headers:', req.headers);
+  next();
+});
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' });
