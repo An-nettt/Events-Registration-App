@@ -50,7 +50,7 @@ When both servers are up and running, the application will be available at: http
 
 ### API endpoints
 
-Backend deployment is at the link: https://events-registration-app-backend-988z.onrender.com. and the <b>free plan includes hibernation</b>.
+Backend deployment is at the link: https://events-registration-app-backend-988z.onrender.com **and the free plan includes hibernation**.
 
 The following API endpoints are available on the server:
 
