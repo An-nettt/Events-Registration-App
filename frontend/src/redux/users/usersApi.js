@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL =
-  'https://events-registration-app-backend-988z.onrender.com/api';
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 export const getAllUsersAPI = createAsyncThunk(
   'users/fetchAll',
