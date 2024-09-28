@@ -35,6 +35,7 @@ const userSchema = Yup.object().shape({
   date: Yup.date()
     .nullable()
     .required('Date of Birth is required')
+    .min(new Date(1944, 0, 1), 'Date cannot be before January 1st, 1944')
     .max(new Date(), 'Date of Birth cannot be in the future'),
 });
 
